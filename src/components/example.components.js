@@ -12,11 +12,24 @@ import fetchAPI from '../functions/example.api'
 const Example = (props) => {
   const { text, exampleConstants, fetchAPI } = (props)
   const handleButtonClick = () => {
-    if (text === undefined) {
-      exampleConstants('Hello World!')
-    } else {
-      exampleConstants(undefined);
-    }
+    // if (text === undefined) {
+    //   exampleConstants('Hello World!')
+    // } else {
+    //   exampleConstants(undefined);
+    // }
+    fetch('/middleware')
+        .then(res => res.json())
+        .then(res => {
+            if (res.error) {
+                throw(res.error);
+            }
+            // dispatch(fetchAPISuccess(res))
+            // sendNotification("Hello", res.title, "success")
+            return res;
+        })
+        .catch(error => {
+            console.error(error);
+        })
   }
 
   return (

@@ -21,6 +21,12 @@ RUN npm run build
 # ------------------------------------------------------
 # Production Build
 # ------------------------------------------------------
-FROM nginx
+FROM nginx:alpine
+
+# Atualização de pacotes e instalação do nginx
+# RUN apk add nginx-plus-module-ndk nginx-plus-module-lua
+RUN apk add nginx-lua
+
+ENV URL_MIDDLEWARE_API "https://google.com" 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/build /usr/share/nginx/html 
