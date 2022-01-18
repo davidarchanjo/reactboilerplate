@@ -1,6 +1,6 @@
 ![banner](./assets/banner.png)
 </br></br>
-This is My boilerplate for bootstraping React Project
+This is my boilerplate for bootstraping React Project
 
 Below you will find some information on how to perform common tasks.<br>
 
